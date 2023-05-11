@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'redmine_tags'
+require_relative 'lib/redmine_tags'
 
 ActiveSupport::Reloader.to_prepare do
   paths = '/lib/redmine_tags/{patches/*_patch,hooks/*_hook}.rb'
@@ -13,11 +13,10 @@ Redmine::Plugin.register :redmine_tags do
   name        'Redmine Tags'
   author      'Aleksey V Zapparov AKA "ixti"'
   description 'Redmine tagging support'
-  version     '4.0.0'
-  url         'https://github.com/ixti/redmine_tags/'
-  author_url  'http://www.ixti.net/'
+  version     '1.0.0'
+  url         'https://github.com/tools-aoeur/redmine_tags'
 
-  requires_redmine version_or_higher: '4.0.0'
+  requires_redmine version_or_higher: '5.0.0'
 
   settings \
     default:  {
