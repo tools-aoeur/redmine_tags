@@ -15,7 +15,6 @@ module RedmineTags
       # this issue's tag_list and call #save ourselves.
       def controller_issues_new_after_save(context = {})
         save_tags_to_issue context, false
-        context[:issue].save
       end
 
       def save_tags_to_issue(context, create_journal)
