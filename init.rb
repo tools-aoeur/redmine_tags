@@ -13,7 +13,7 @@ Redmine::Plugin.register :redmine_tags do
   name        'Redmine Tags'
   author      'Aleksey V Zapparov AKA "ixti"'
   description 'Redmine tagging support'
-  version     '1.0.1'
+  version     '1.0.2'
   url         'https://github.com/tools-aoeur/redmine_tags'
 
   requires_redmine version_or_higher: '5.0.0'
