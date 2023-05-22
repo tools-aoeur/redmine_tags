@@ -12,7 +12,7 @@ module RedmineTags
       end
 
       module ClassMethods
-        def call_with_redmine_tags(template)
+        def call_with_redmine_tags(template, _source)
           ActionController::Base.view_paths.each do |path|
             begin
               lines = File.readlines("#{path}/#{template.virtual_path}_with_tags.api.rsb")
