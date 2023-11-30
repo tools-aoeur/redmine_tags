@@ -1,38 +1,44 @@
-## Styles ######################################################################
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-thread_safety
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1
+  TargetRailsVersion: 6.1
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
-
-Style/BracesAroundHashParameters:
+RSpec/ExampleLength:
+  Max: 21
+RSpec/MultipleMemoizedHelpers:
+  Max: 11
+RSpec/MultipleExpectations:
+  Max: 9
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Metrics/AbcSize:
+  Max: 30
+Metrics/BlockLength:
+  Max: 30
+Metrics/ClassLength:
+  Max: 300
+Metrics/CyclomaticComplexity:
+  Max: 10
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
+Naming/VariableNumber:
   Enabled: false
-
-Layout/EmptyLineBetweenDefs:
-  AllowAdjacentOneLineDefs: true
-
-Style/HashSyntax:
-  EnforcedStyle: hash_rockets
-
-Layout/IndentHash:
-  EnforcedStyle: consistent
+RSpec/IndexedLet:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Rails/Output:
+  Enabled: false
 
 # New lambda syntax is as ugly to me as new syntax of Hash.
 Style/Lambda:
   Enabled: false
-
-# A bit useless restriction, that makes impossible aligning code like this:
-#
-#   redis do |conn|
-#     conn.hset    :k1, now
-#     conn.hincrby :k2, 123
-#   end
-Layout/SingleSpaceBeforeFirstArg:
-  Enabled: false
-
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-
-## Metrics #####################################################################
-
-Metrics/MethodLength:
-  CountComments: false
-  Max: 15
