@@ -1,6 +1,6 @@
 require_relative '../test_helper'
 
-class IssuesControllerTest < ActionDispatch::IntegrationTest
+class IssuesControllerTest < ActionController::TestCase
   fixtures :projects,
            :users, :email_addresses, :user_preferences,
            :roles,
