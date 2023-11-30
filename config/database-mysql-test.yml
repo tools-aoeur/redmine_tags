@@ -1,6 +1,7 @@
 test:
   adapter: mysql2
   host: 127.0.0.1
+  port: <%= ENV.fetch("MYSQL_PORT", 3306) %>
   database: redmine
   username: root
   password: supers3kretdonthacklel
