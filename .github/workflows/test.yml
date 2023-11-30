@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         ruby: ['3.1']
-        redmine: ['5.0-stable', 'master']
+        redmine: ['5.0.6-aoeur']
         db: ['postgres', 'mysql']
       fail-fast: false
 
@@ -52,7 +52,7 @@ jobs:
       - name: Checkout Redmine
         uses: actions/checkout@v2
         with:
-          repository: redmine/redmine
+          repository: tools-aoeur/redmine
           ref: ${{ matrix.redmine }}
           path: redmine
 
