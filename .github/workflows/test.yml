@@ -46,6 +46,7 @@ jobs:
     steps:
       - name: Verify MySQL connection from host
         run: |
+          sudo /etc/init.d/mysql start
           mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports[3306] }} -uroot -psupers3kretdonthacklel -e "SHOW DATABASES"
         if: matrix.db == 'mysql'
 
