@@ -1,4 +1,4 @@
-require File.expand_path('../test_helper', __dir__)
+require_relative '../test_helper'
 
 class IssuesControllerTest < ActionDispatch::IntegrationTest
   fixtures :projects,
