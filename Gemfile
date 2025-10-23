@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'acts-as-taggable-on', '~> 9.0'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'rubocop'
