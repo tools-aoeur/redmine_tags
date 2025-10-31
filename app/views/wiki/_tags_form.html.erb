@@ -14,7 +14,7 @@
         url: '#{ url_for(controller: 'auto_completes', action: 'wiki_tags', project_id: page.project.id)}',
         data: {q: search.term},
         success: function(choices) {
-          showChoices(that._subtractArray(jQuery.parseJSON(choices), that.assignedTags()));
+          showChoices(that._subtractArray(choices, that.assignedTags()));
         }
       });
     },

@@ -7,7 +7,7 @@
       url: '#{escape_javascript auto_complete_issue_tags_path(@issue.project)}',
       data: {q: search.term},
       success: function(choices) {
-        showChoices(that._subtractArray(jQuery.parseJSON(choices), that.assignedTags()));
+        showChoices(that._subtractArray(choices, that.assignedTags()));
       }
     });
   },
