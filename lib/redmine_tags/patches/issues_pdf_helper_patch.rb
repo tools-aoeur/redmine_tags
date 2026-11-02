@@ -10,30 +10,15 @@ module RedmineTags
       end
 
       module InstanceMethods
+        # Core renders the tags association as an object inspect string, so
+        # join the tag names; every other column (float rounding,
+        # parent.subject, attachments, ...) stays with core.
         def fetch_row_values_with_redmine_tags(issue, query, level)
-          query.inline_columns.collect do |column|
-            s = if column.is_a?(QueryCustomFieldColumn)
-              cv = issue.visible_custom_field_values.detect {|v| v.custom_field_id == column.custom_field.id}
-              show_value(cv, false)
-            else
-              value = issue.send(column.name)
-              if column.name == :subject
-                value = "  " * level + value
-              end
-              if value.is_a?(Date)
-                format_date(value)
-              elsif value.is_a?(Time)
-                format_time(value)
-              elsif value.respond_to?(:map)
-                # If a value is mappable then we need each of it's elements
-                # string representation
-                value.map(&:to_s).compact.join(',')
-              else
-                value
-              end
-            end
-            s.to_s
+          values = fetch_row_values_without_redmine_tags(issue, query, level)
+          query.inline_columns.each_with_index do |column, i|
+            values[i] = issue.tags.map(&:to_s).join(',') if column.name == :tags
           end
+          values
         end
       end
     end
